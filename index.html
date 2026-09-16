@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendedores Natos | Seja Coautor(a) — Otto Editora</title>
+    <meta name="description" content="Livro de coautoria que reúne até 20 empreendedores e empresários com vendas no DNA. Vagas limitadas, curadoria da Otto Editora.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --black: #0a0a0b;
+            --black-2: #131315;
+            --charcoal: #1b1c1e;
+            --charcoal-2: #232427;
+            --steel-line: #3a3b3e;
+            --silver-bright: #f4f4f5;
+            --silver: #c7c9cc;
+            --silver-mid: #9a9da2;
+            --silver-dim: #6b6e73;
+            --chrome: linear-gradient(135deg, #ffffff 0%, #d4d6d9 28%, #8c8f94 55%, #d9dbde 78%, #ffffff 100%);
+            --whatsapp-green: #25D366;
+            --whatsapp-green-hover: #21b856;
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --shadow-deep: 0 20px 50px rgba(0,0,0,0.55);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body { font-family: 'Inter', sans-serif; color: var(--silver-bright); background: var(--black); line-height: 1.6; overflow-x: hidden; padding-bottom: 78px; }
+        h1, h2, h3, h4 { font-family: 'Anton', sans-serif; letter-spacing: 0.5px; text-transform: uppercase; font-weight: 400; }
+        a { text-decoration: none; color: inherit; transition: var(--transition-smooth); }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 25px; }
+
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 17px 36px; font-family: 'Anton', sans-serif; font-size: 1.15rem; letter-spacing: 1px; border-radius: 3px; border: none; cursor: pointer; transition: var(--transition-smooth); text-transform: uppercase; }
+        .btn-chrome { background: var(--chrome); background-size: 220% 220%; color: #0a0a0b; box-shadow: 0 8px 24px rgba(0,0,0,0.45); }
+        .btn-chrome:hover { background-position: 100% 0; transform: translateY(-3px); box-shadow: 0 14px 34px rgba(0,0,0,0.6); }
+        .btn-outline { background: transparent; color: var(--silver-bright); border: 1.5px solid var(--silver-mid); }
+        .btn-outline:hover { border-color: var(--silver-bright); background: rgba(255,255,255,0.04); }
+        .btn-block { width: 100%; }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s cubic-bezier(.16,1,.3,1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .delay-1 { transition-delay: .1s; } .delay-2 { transition-delay: .2s; } .delay-3 { transition-delay: .3s; } .delay-4 { transition-delay: .4s; }
+
+        /* HEADER */
+        header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: rgba(10,10,11,0.85); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.06); transition: var(--transition-smooth); }
+        header.scrolled { background: rgba(10,10,11,0.97); box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; }
+        .brand-word { font-family: 'Anton', sans-serif; font-size: 1.5rem; letter-spacing: 2px; background: var(--chrome); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .brand-word span { display: block; font-family: 'Inter', sans-serif; font-size: 0.55rem; letter-spacing: 4px; color: var(--silver-dim); text-transform: uppercase; margin-top: -2px; -webkit-text-fill-color: var(--silver-dim); }
+        .brand-logo-img { height: 32px; width: auto; filter: brightness(0) invert(1); transition: var(--transition-smooth); display: block; }
+        a.brand-word:hover .brand-logo-img { opacity: 0.8; }
+        .brand-logo-img.footer-logo { height: 28px; opacity: 0.92; }
+        .nav-cta { padding: 11px 24px; font-size: 1rem; }
+
+        /* URGENCY BAR */
+        .urgency-bar { background: var(--charcoal); color: var(--silver); text-align: center; padding: 9px 15px; font-size: 0.78rem; font-weight: 600; letter-spacing: .5px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .urgency-bar i { color: var(--silver-bright); margin-right: 6px; }
+
+        /* HERO */
+        .hero { position: relative; padding-top: 158px; padding-bottom: 100px; background: var(--black); overflow: hidden; }
+        .hero::before { content: ''; position: absolute; inset: 0; background:
+            repeating-linear-gradient(115deg, rgba(255,255,255,0.018) 0px, rgba(255,255,255,0.018) 1px, transparent 1px, transparent 7px); pointer-events: none; }
+        .hero::after { content: ''; position: absolute; top: -25%; right: -8%; width: 700px; height: 700px; background: radial-gradient(circle, rgba(199,201,204,0.10) 0%, transparent 68%); pointer-events: none; }
+        .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 60px; align-items: center; position: relative; z-index: 2; }
+        .hero-eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--silver-mid); font-size: 0.78rem; font-weight: 700; letter-spacing: 2px; margin-bottom: 22px; font-family: 'Inter', sans-serif; }
+        .hero-eyebrow::before { content: ''; width: 26px; height: 1px; background: var(--silver-mid); }
+        .hero-headline { font-size: 3.7rem; line-height: 1.04; margin-bottom: 24px; color: var(--silver-bright); }
+        .hero-headline .chrome-text { background: var(--chrome); -webkit-background-clip: text; background-clip: text; color: transparent; display: block; }
+        .hero-subheadline { font-family: 'Inter', sans-serif; font-size: 1.06rem; font-weight: 300; line-height: 1.75; margin-bottom: 20px; color: #c9cbce; max-width: 600px; }
+        .hero-org-tag { font-size: 0.82rem; color: var(--silver-dim); margin-bottom: 32px; font-family: 'Inter', sans-serif; }
+        .hero-ctas { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-bottom: 26px; }
+        .hero-microcopy { font-family: 'Inter', sans-serif; font-size: 0.8rem; color: var(--silver-dim); display: flex; align-items: center; gap: 8px; }
+        .hero-microcopy i { color: var(--silver-mid); }
+
+        .hero-book { position: relative; display: flex; justify-content: center; }
+        .hero-book-frame { position: relative; width: 100%; max-width: 370px; }
+        .hero-book-frame::before { content: ''; position: absolute; inset: -18px; background: radial-gradient(circle, rgba(199,201,204,0.16) 0%, transparent 70%); z-index: 0; }
+        .hero-book-frame img { position: relative; z-index: 1; border-radius: 3px; box-shadow: var(--shadow-deep), 0 0 60px rgba(255,255,255,0.05); }
+        .hero-vaga-tag { position: relative; z-index: 2; margin: 20px auto 0 auto; width: fit-content; background: var(--charcoal); border: 1px solid var(--steel-line); color: var(--silver-bright); padding: 10px 22px; border-radius: 3px; font-family: 'Inter', sans-serif; font-size: 0.78rem; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+        .hero-vaga-tag i { color: var(--silver-bright); }
+
+        /* SECTION BASE */
+        .section-padding { padding: 100px 0; }
+        .section-header { text-align: center; margin-bottom: 58px; max-width: 720px; margin-left: auto; margin-right: auto; }
+        .section-eyebrow { font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; color: var(--silver-dim); margin-bottom: 12px; display: block; }
+        .section-title { font-size: 2.6rem; color: var(--silver-bright); margin-bottom: 16px; }
+        .section-title .accent { background: var(--chrome); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .section-subtitle { font-family: 'Inter', sans-serif; font-size: 1rem; color: var(--silver-mid); font-weight: 400; }
+
+        /* PARA QUEM */
+        .for-you { background: var(--black-2); }
+        .for-you-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; max-width: 950px; margin: 0 auto; background: var(--steel-line); border: 1px solid var(--steel-line); }
+        .for-you-item { display: flex; align-items: flex-start; gap: 16px; background: var(--black-2); padding: 26px 28px; }
+        .for-you-item i { color: var(--silver-bright); font-size: 1.1rem; margin-top: 3px; }
+        .for-you-item p { font-family: 'Inter', sans-serif; font-size: 0.94rem; color: #d5d6d8; font-weight: 400; }
+
+        /* OPORTUNIDADES DE RETORNO */
+        .roi-section { background: var(--black); position: relative; }
+        .roi-intro { max-width: 620px; margin-bottom: 50px; }
+        .roi-intro p { font-family: 'Inter', sans-serif; font-size: 1.02rem; color: #c9cbce; line-height: 1.75; }
+        .roi-list { border-top: 1px solid var(--steel-line); }
+        .roi-row { display: grid; grid-template-columns: 60px 1fr; gap: 26px; padding: 30px 0; border-bottom: 1px solid var(--steel-line); align-items: flex-start; }
+        .roi-row i { font-size: 1.5rem; color: var(--silver-bright); margin-top: 4px; }
+        .roi-row h4 { font-family: 'Inter', sans-serif; font-size: 1.08rem; font-weight: 700; text-transform: none; letter-spacing: 0; color: var(--silver-bright); margin-bottom: 8px; }
+        .roi-row p { font-family: 'Inter', sans-serif; font-size: 0.92rem; color: var(--silver-mid); line-height: 1.6; max-width: 680px; }
+        .roi-note { margin-top: 34px; font-family: 'Inter', sans-serif; font-size: 0.82rem; color: var(--silver-dim); font-style: italic; max-width: 680px; }
+        .roi-grid { display: grid; grid-template-columns: 1.05fr 0.85fr; gap: 56px; align-items: start; }
+        .roi-visual { position: sticky; top: 130px; }
+        .roi-visual-frame { position: relative; border: 1px solid var(--steel-line); border-radius: 4px; overflow: hidden; background: var(--charcoal); }
+        .roi-visual-frame::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: var(--chrome); z-index: 2; }
+        .roi-visual-frame img { display: block; width: 100%; }
+        .roi-visual-caption { margin-top: 16px; font-family: 'Inter', sans-serif; font-size: 0.78rem; color: var(--silver-dim); text-align: center; }
+
+        /* DIFERENCIAIS */
+        .differentials { background: var(--black-2); }
+        .diff-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--steel-line); border: 1px solid var(--steel-line); }
+        .diff-card { background: var(--charcoal); padding: 40px 28px; transition: var(--transition-smooth); text-align: left; position: relative; }
+        .diff-card:hover { background: var(--charcoal-2); }
+        .diff-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: var(--chrome); opacity: 0; transition: var(--transition-smooth); }
+        .diff-card:hover::before { opacity: 1; }
+        .diff-icon-wrapper { width: 52px; height: 52px; border: 1px solid var(--steel-line); border-radius: 3px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; }
+        .diff-icon-wrapper i { font-size: 1.35rem; color: var(--silver-bright); }
+        .diff-card-title { font-family: 'Inter', sans-serif; font-size: 1.02rem; font-weight: 700; margin-bottom: 12px; text-transform: none; letter-spacing: 0; color: var(--silver-bright); }
+        .diff-card-text { font-family: 'Inter', sans-serif; font-size: 0.86rem; color: var(--silver-mid); line-height: 1.6; }
+
+        /* PROCESSO */
+        .process { background: var(--black); }
+        .process-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--steel-line); border-top: 1px solid var(--steel-line); border-bottom: 1px solid var(--steel-line); }
+        .process-step { background: var(--black); text-align: left; padding: 30px 22px; }
+        .process-num { font-family: 'Anton', sans-serif; font-size: 2.2rem; background: var(--chrome); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 16px; line-height: 1; }
+        .process-step h4 { font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 700; text-transform: none; letter-spacing: 0; margin-bottom: 8px; color: var(--silver-bright); }
+        .process-step p { font-family: 'Inter', sans-serif; font-size: 0.78rem; color: var(--silver-dim); line-height: 1.5; }
+
+        /* TESTIMONIALS */
+        .testimonials { background: var(--black-2); }
+        .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--steel-line); border: 1px solid var(--steel-line); max-width: 1100px; margin: 0 auto; }
+        .testi-card { background: var(--charcoal); padding: 34px 26px; position: relative; transition: var(--transition-smooth); }
+        .testi-card:hover { background: var(--charcoal-2); }
+        .quote-icon { position: absolute; top: 22px; right: 24px; font-size: 1.7rem; color: rgba(255,255,255,0.06); }
+        .testi-profile { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+        .testi-avatar { width: 54px; height: 54px; border-radius: 50%; object-fit: cover; border: 1px solid var(--steel-line); filter: grayscale(35%); }
+        .testi-meta h4 { font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 700; text-transform: none; letter-spacing: 0; color: var(--silver-bright); }
+        .testi-meta p { font-family: 'Inter', sans-serif; font-size: 0.75rem; color: var(--silver-dim); font-weight: 500; }
+        .testi-text { font-family: 'Inter', sans-serif; font-size: 0.87rem; font-style: italic; line-height: 1.65; color: #cfd0d2; }
+
+        /* INVESTIMENTO */
+        .invest-section { background: var(--black); }
+        .invest-card { max-width: 640px; margin: 0 auto; background: var(--charcoal); border: 1px solid var(--steel-line); border-radius: 4px; padding: 50px 46px; position: relative; overflow: hidden; }
+        .invest-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: var(--chrome); }
+        .invest-book-title { text-align: center; font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--silver-dim); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; }
+        .invest-price-row { text-align: center; margin-bottom: 32px; }
+        .invest-price { font-family: 'Anton', sans-serif; font-size: 3.6rem; background: var(--chrome); -webkit-background-clip: text; background-clip: text; color: transparent; line-height: 1; }
+        .invest-price-sub { font-family: 'Inter', sans-serif; font-size: 0.85rem; color: var(--silver-dim); margin-top: 8px; }
+        .invest-list { margin-bottom: 34px; }
+        .invest-list li { display: flex; align-items: flex-start; gap: 12px; font-family: 'Inter', sans-serif; font-size: 0.9rem; margin-bottom: 15px; color: #d5d6d8; }
+        .invest-list i { color: var(--silver-bright); margin-top: 3px; }
+        .invest-note { text-align: center; font-family: 'Inter', sans-serif; font-size: 0.78rem; color: var(--silver-dim); margin-top: 18px; }
+
+        /* FAQ */
+        .faq-section { background: var(--black-2); }
+        .faq-list { max-width: 850px; margin: 0 auto; }
+        .faq-item { background: var(--charcoal); border: 1px solid var(--steel-line); border-radius: 4px; margin-bottom: 12px; overflow: hidden; transition: var(--transition-smooth); }
+        .faq-item.open { border-color: var(--silver-mid); }
+        .faq-question { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 20px 26px; cursor: pointer; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.96rem; color: var(--silver-bright); }
+        .faq-question i { color: var(--silver-mid); font-size: 0.9rem; flex-shrink: 0; transition: var(--transition-smooth); }
+        .faq-item.open .faq-question i { transform: rotate(45deg); color: var(--silver-bright); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height .4s cubic-bezier(.16,1,.3,1); }
+        .faq-answer p { padding: 0 26px 22px 26px; font-family: 'Inter', sans-serif; color: var(--silver-mid); font-size: 0.9rem; line-height: 1.7; }
+
+        /* CTA FINAL */
+        .final-cta { background: var(--black); text-align: center; position: relative; overflow: hidden; border-top: 1px solid var(--steel-line); }
+        .final-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.06) 0%, transparent 55%); pointer-events: none; }
+        .cta-container { max-width: 820px; margin: 0 auto; position: relative; z-index: 2; }
+        .cta-title { font-size: 3rem; line-height: 1.08; margin-bottom: 20px; color: var(--silver-bright); }
+        .cta-title .chrome-text { background: var(--chrome); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .cta-subtitle { font-family: 'Inter', sans-serif; font-size: 1.02rem; font-weight: 300; margin-bottom: 38px; color: #c9cbce; }
+        .btn-giant { padding: 19px 46px; font-size: 1.3rem; }
+
+        /* FOOTER */
+        footer { background: var(--black-2); color: var(--silver-dim); padding: 50px 0 26px 0; font-size: 0.85rem; border-top: 1px solid var(--steel-line); }
+        .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 24px; }
+        .footer-back { color: var(--silver-mid); font-family: 'Inter', sans-serif; font-size: 0.84rem; }
+        .footer-back:hover { color: var(--silver-bright); }
+        .footer-bottom { border-top: 1px solid var(--steel-line); padding-top: 22px; font-family: 'Inter', sans-serif; font-size: 0.76rem; color: var(--silver-dim); text-align: center; }
+
+        /* STICKY MOBILE BAR */
+        .sticky-cta { position: fixed; bottom: 0; left: 0; width: 100%; background: var(--charcoal); border-top: 1px solid var(--steel-line); padding: 12px 18px; z-index: 998; box-shadow: 0 -6px 20px rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+        .sticky-cta-text { font-family: 'Inter', sans-serif; font-size: 0.76rem; color: var(--silver-dim); line-height: 1.3; }
+        .sticky-cta-text strong { display: block; color: var(--silver-bright); font-size: 0.9rem; font-weight: 700; }
+        .sticky-cta .btn { padding: 12px 22px; font-size: 1rem; white-space: nowrap; }
+
+        .whatsapp-floating { position: fixed; bottom: 96px; right: 24px; width: 58px; height: 58px; background: var(--whatsapp-green); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 6px 25px rgba(37,211,102,0.35); z-index: 999; transition: var(--transition-smooth); }
+        .whatsapp-floating:hover { background: var(--whatsapp-green-hover); transform: scale(1.08); }
+
+        @media (max-width: 1050px) {
+            .diff-grid { grid-template-columns: repeat(2, 1fr); }
+            .testi-grid { grid-template-columns: repeat(2, 1fr); }
+            .process-steps { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 900px) {
+            .hero-grid { grid-template-columns: 1fr; text-align: center; }
+            .hero-eyebrow { justify-content: center; }
+            .hero-subheadline { margin-left: auto; margin-right: auto; }
+            .hero-ctas { justify-content: center; }
+            .hero-microcopy { justify-content: center; }
+            .hero-book { order: -1; margin-bottom: 10px; }
+            .for-you-grid { grid-template-columns: 1fr; }
+            .roi-row { grid-template-columns: 40px 1fr; }
+            .roi-grid { grid-template-columns: 1fr; }
+            .roi-visual { position: static; order: -1; margin-bottom: 8px; max-width: 480px; margin-left: auto; margin-right: auto; }
+        }
+        @media (max-width: 640px) {
+            .section-title { font-size: 2.1rem; }
+            .hero-headline { font-size: 2.5rem; }
+            .diff-grid { grid-template-columns: 1fr; }
+            .testi-grid { grid-template-columns: 1fr; }
+            .process-steps { grid-template-columns: 1fr; }
+            .cta-title { font-size: 2.1rem; }
+            .section-padding { padding: 64px 0; }
+            .invest-card { padding: 36px 26px; }
+            .invest-price { font-size: 2.8rem; }
+            .whatsapp-floating { bottom: 90px; right: 16px; width: 50px; height: 50px; font-size: 1.7rem; }
+            .footer-inner { flex-direction: column; align-items: flex-start; }
+            .sticky-cta-text { display: none; }
+            .sticky-cta { justify-content: center; }
+            .sticky-cta .btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="urgency-bar">
+        <i class="fa-solid fa-circle-exclamation"></i>Turma "Vendedores Natos" com vagas limitadas a 20 coautores(as) — curadoria em andamento
+    </div>
+
+    <header id="main-header">
+        <div class="container nav-container">
+            <a href="#topo" class="brand-word"><img src="https://i.postimg.cc/g23mDDRH/LOGO.png" alt="Otto Editora" class="brand-logo-img"></a>
+            <a href="https://form.typeform.com/to/HDexd0qf" target="_blank" class="btn btn-chrome nav-cta">Quero minha vaga</a>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="topo">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <p class="hero-eyebrow reveal active">LIVRO DE COAUTORIA</p>
+                <h1 class="hero-headline reveal active">Você tem vendas no sangue.<span class="chrome-text">Está na hora do mercado saber disso.</span></h1>
+                <p class="hero-subheadline reveal active delay-1">
+                    "Vendedores Natos — Bastidores do Empreendedorismo" reúne até 20 empreendedores(as) e empresários(as) que fizeram das vendas sua maior força, em um livro de coautoria de alto padrão. Conte sua trajetória, construa autoridade e entre para um livro que vira cartão de visitas para o resto da carreira.
+                </p>
+                <p class="hero-org-tag reveal active delay-1">Organização: Larissa Ody — Otto Editora</p>
+                <div class="hero-ctas reveal active delay-2">
+                    <a href="https://form.typeform.com/to/HDexd0qf" target="_blank" class="btn btn-chrome">Quero ser coautor(a) <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#investimento" class="btn btn-outline">Ver investimento</a>
+                </div>
+                <p class="hero-microcopy reveal active delay-3"><i class="fa-solid fa-lock"></i> Inscrição por curadoria — vagas não são garantidas por ordem de chegada</p>
+            </div>
+            <div class="hero-book reveal active delay-2">
+                <div>
+                    <div class="hero-book-frame">
+                        <img src="https://i.postimg.cc/c1Dm3QdZ/3.png" alt="Capa do livro Vendedores Natos - Bastidores do Empreendedorismo">
+                    </div>
+                    <div class="hero-vaga-tag"><i class="fa-solid fa-users"></i> Até 20 coautores(as) selecionados</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARA QUEM É -->
+    <section class="for-you section-padding">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow">PERFIL DO COAUTOR</span>
+                <h2 class="section-title">Este livro é para você, <span class="accent">se</span></h2>
+                <p class="section-subtitle">A curadoria da Otto busca histórias reais de quem construiu resultado através das vendas — não apenas teoria.</p>
+            </div>
+            <div class="for-you-grid">
+                <div class="for-you-item reveal"><i class="fa-solid fa-check"></i><p>Você é empreendedor(a) ou empresário(a) e as vendas fazem parte da sua trajetória de crescimento.</p></div>
+                <div class="for-you-item reveal delay-1"><i class="fa-solid fa-check"></i><p>Você quer transformar sua experiência em conteúdo que gera autoridade e novas oportunidades de negócio.</p></div>
+                <div class="for-you-item reveal delay-2"><i class="fa-solid fa-check"></i><p>Você tem uma história de bastidor — os erros, as viradas de chave, as vendas que mudaram seu negócio — e quer que ela seja lida.</p></div>
+                <div class="for-you-item reveal delay-3"><i class="fa-solid fa-check"></i><p>Você busca um selo editorial com ISBN, curadoria e lançamento presencial, sem precisar escrever um livro sozinho(a).</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OPORTUNIDADES DE RETORNO -->
+    <section class="roi-section section-padding">
+        <div class="container">
+            <span class="section-eyebrow reveal">RETORNO SOBRE O INVESTIMENTO</span>
+            <h2 class="section-title reveal">O livro não é o produto final.<br><span class="accent">É a porta de entrada.</span></h2>
+            <div class="roi-grid">
+                <div class="roi-content">
+                    <div class="roi-intro reveal delay-1">
+                        <p>Vender os exemplares que você recebe é só uma das formas de recuperar o investimento. Coautores da Otto Editora costumam explorar o livro como ativo de posicionamento — e é aí que o retorno se multiplica.</p>
+                    </div>
+                    <div class="roi-list">
+                        <div class="roi-row reveal">
+                            <i class="fa-solid fa-tags"></i>
+                            <div><h4>Precificação mais alta em mentorias, consultorias e serviços</h4><p>Ser autor(a) de um livro é prova social concreta. Muitos coautores usam esse selo para justificar tickets mais altos em propostas comerciais.</p></div>
+                        </div>
+                        <div class="roi-row reveal delay-1">
+                            <i class="fa-solid fa-podium"></i>
+                            <div><h4>Convites para palestras, painéis e eventos do setor</h4><p>Ter um livro publicado abre portas para ser chamado(a) como referência em rodadas, congressos e encontros de negócio.</p></div>
+                        </div>
+                        <div class="roi-row reveal delay-2">
+                            <i class="fa-solid fa-newspaper"></i>
+                            <div><h4>Visibilidade em imprensa e mídia espontânea</h4><p>Autores de livros viram fontes naturais para matérias, entrevistas e reportagens sobre o próprio mercado.</p></div>
+                        </div>
+                        <div class="roi-row reveal delay-3">
+                            <i class="fa-solid fa-share-nodes"></i>
+                            <div><h4>Conteúdo de autoridade para suas redes por meses</h4><p>Trechos, bastidores e a sessão de autógrafos rendem conteúdo genuíno para LinkedIn e Instagram muito depois do lançamento.</p></div>
+                        </div>
+                        <div class="roi-row reveal delay-4">
+                            <i class="fa-solid fa-id-card-clip"></i>
+                            <div><h4>Um cartão de visitas físico de altíssimo impacto</h4><p>Entregar um livro com o seu nome em uma reunião comercial comunica autoridade antes mesmo de você abrir a boca.</p></div>
+                        </div>
+                        <div class="roi-row reveal">
+                            <i class="fa-solid fa-people-arrows"></i>
+                            <div><h4>Networking direto com outros empreendedores da obra</h4><p>Você entra em contato direto com os demais coautores — parcerias, indicações e negócios nascem desse círculo.</p></div>
+                        </div>
+                        <div class="roi-row reveal delay-1">
+                            <i class="fa-solid fa-sack-dollar"></i>
+                            <div><h4>Venda independente dos seus exemplares</h4><p>Com direitos livres sobre seus exemplares, você também pode comercializá-los e ficar com 100% do lucro dessa venda.</p></div>
+                        </div>
+                    </div>
+                    <p class="roi-note reveal">As oportunidades acima dependem de como cada coautor(a) utiliza o livro em sua estratégia pessoal e comercial — a Otto Editora entrega a publicação, a curadoria e o lançamento; a exploração de cada frente é de responsabilidade do(a) coautor(a).</p>
+                </div>
+                <div class="roi-visual reveal delay-2">
+                    <div class="roi-visual-frame">
+                        <img src="https://i.postimg.cc/4dYkppYN/Frame-57.png" alt="Bastidores de lançamentos e sessões de autógrafos de autoras da Otto Editora">
+                    </div>
+                    <p class="roi-visual-caption">Bastidores de lançamentos anteriores da Otto Editora</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIFERENCIAIS -->
+    <section class="differentials section-padding" id="diferenciais">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow">O QUE ESTÁ INCLUSO</span>
+                <h2 class="section-title">O que você leva ao entrar <span class="accent">nesta obra</span></h2>
+                <p class="section-subtitle">Um pacote completo de publicação para transformar sua trajetória em livro.</p>
+            </div>
+            <div class="diff-grid">
+                <div class="diff-card reveal">
+                    <div class="diff-icon-wrapper"><i class="fa-solid fa-pen-nib"></i></div>
+                    <h3 class="diff-card-title">Capítulo autoral com mentoria</h3>
+                    <p class="diff-card-text">8 a 10 páginas contando sua trajetória, com orientação editorial completa do início ao fim.</p>
+                </div>
+                <div class="diff-card reveal delay-1">
+                    <div class="diff-icon-wrapper"><i class="fa-solid fa-barcode"></i></div>
+                    <h3 class="diff-card-title">Publicação oficial com ISBN</h3>
+                    <p class="diff-card-text">Ficha catalográfica, código de barras e todos os requisitos técnicos do mercado editorial.</p>
+                </div>
+                <div class="diff-card reveal delay-2">
+                    <div class="diff-icon-wrapper"><i class="fa-solid fa-champagne-glasses"></i></div>
+                    <h3 class="diff-card-title">Lançamento presencial</h3>
+                    <p class="diff-card-text">Evento em Florianópolis/SC, com sessão de autógrafos e networking entre os coautores da obra.</p>
+                </div>
+                <div class="diff-card reveal delay-3">
+                    <div class="diff-icon-wrapper"><i class="fa-solid fa-certificate"></i></div>
+                    <h3 class="diff-card-title">Direitos e royalties livres</h3>
+                    <p class="diff-card-text">5 exemplares físicos + e-book inclusos, com cessão integral de direitos sobre seus exemplares.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESSO -->
+    <section class="process section-padding">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow">COMO FUNCIONA</span>
+                <h2 class="section-title">Do "sim" ao <span class="accent">livro nas mãos</span></h2>
+                <p class="section-subtitle">Um processo guiado, sem sustos, para quem nunca publicou um livro.</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step reveal"><div class="process-num">01</div><h4>Inscrição</h4><p>Você se inscreve e passa pela curadoria da Otto Editora.</p></div>
+                <div class="process-step reveal delay-1"><div class="process-num">02</div><h4>Briefing</h4><p>Estruturação do tema do seu capítulo com a equipe editorial.</p></div>
+                <div class="process-step reveal delay-2"><div class="process-num">03</div><h4>Escrita guiada</h4><p>Você escreve com acompanhamento de mentores e jornalistas.</p></div>
+                <div class="process-step reveal delay-3"><div class="process-num">04</div><h4>Revisão e projeto gráfico</h4><p>Revisão, diagramação e capa com padrão premium Otto.</p></div>
+                <div class="process-step reveal delay-4"><div class="process-num">05</div><h4>Lançamento</h4><p>Evento presencial em Florianópolis/SC, com seus exemplares em mãos.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section class="testimonials section-padding" id="depoimentos">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow">PROVA SOCIAL</span>
+                <h2 class="section-title">Quem já publicou <span class="accent">com a Otto</span></h2>
+                <p class="section-subtitle">A experiência de coautoras de obras anteriores da editora.</p>
+            </div>
+            <div class="testi-grid">
+                <div class="testi-card reveal">
+                    <i class="fa-solid fa-quote-right quote-icon"></i>
+                    <div class="testi-profile">
+                        <img src="https://i.postimg.cc/FRTTXMtG/Whats-App-Image-2026-06-10-at-18-11-48.jpg" alt="Gisele Penteado" class="testi-avatar">
+                        <div class="testi-meta"><h4>Gisele Penteado</h4><p>Gestora de TI</p></div>
+                    </div>
+                    <p class="testi-text">"Escrever foi uma experiência muito especial! Revisitei muitas memórias, relembrei momentos importantes da minha história... foi libertador."</p>
+                </div>
+                <div class="testi-card reveal delay-1">
+                    <i class="fa-solid fa-quote-right quote-icon"></i>
+                    <div class="testi-profile">
+                        <img src="https://i.postimg.cc/4dyzVnMb/Ana.png" alt="Ana Caldart" class="testi-avatar">
+                        <div class="testi-meta"><h4>Ana Caldart</h4><p>Psicanalista e Head</p></div>
+                    </div>
+                    <p class="testi-text">"Eu adorei escrever e achei o processo de revisão muito bom!"</p>
+                </div>
+                <div class="testi-card reveal delay-2">
+                    <i class="fa-solid fa-quote-right quote-icon"></i>
+                    <div class="testi-profile">
+                        <img src="https://i.postimg.cc/4dyzVnMv/Whats-App-Image-2026-06-22-at-10-41-02.jpg" alt="Erika Emanuelle" class="testi-avatar">
+                        <div class="testi-meta"><h4>Erika Emanuelle</h4><p>COO</p></div>
+                    </div>
+                    <p class="testi-text">"Gostei tanto da experiência que estou escrevendo outras obras para serem publicadas em breve."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INVESTIMENTO -->
+    <section class="invest-section section-padding" id="investimento">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow">SUA VAGA</span>
+                <h2 class="section-title">Sua vaga como <span class="accent">coautor(a)</span></h2>
+                <p class="section-subtitle">Tudo o que está incluso para transformar sua trajetória em livro.</p>
+            </div>
+            <div class="invest-card reveal">
+                <p class="invest-book-title">Vendedores Natos — Bastidores do Empreendedorismo</p>
+                <div class="invest-price-row">
+                    <div class="invest-price">R$ 1.200</div>
+                    <p class="invest-price-sub">ou em até 12x no cartão de crédito (juros da operadora)</p>
+                </div>
+                <ul class="invest-list">
+                    <li><i class="fa-solid fa-check"></i><span>Capítulo autoral de 8 a 10 páginas, com acompanhamento editorial completo.</span></li>
+                    <li><i class="fa-solid fa-check"></i><span>Publicação com ISBN, ficha catalográfica e código de barras.</span></li>
+                    <li><i class="fa-solid fa-check"></i><span>5 exemplares físicos + versão digital em e-book.</span></li>
+                    <li><i class="fa-solid fa-check"></i><span>Evento de lançamento presencial em Florianópolis/SC.</span></li>
+                    <li><i class="fa-solid fa-check"></i><span>Direitos livres para comercializar seus próprios exemplares.</span></li>
+                </ul>
+                <a href="https://form.typeform.com/to/HDexd0qf" target="_blank" class="btn btn-chrome btn-block">Quero garantir minha vaga <i class="fa-solid fa-chevron-right"></i></a>
+                <p class="invest-note">Vagas sujeitas à curadoria e disponibilidade da turma (máx. 20 coautores).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ (mesmo conteúdo do site institucional) -->
+    <section class="faq-section section-padding" id="faq">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow">DÚVIDAS</span>
+                <h2 class="section-title">Perguntas <span class="accent">Frequentes</span></h2>
+                <p class="section-subtitle">Tire suas dúvidas sobre o processo editorial e o posicionamento de autoridade com a Otto Editora.</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item reveal">
+                    <div class="faq-question"><span>Por que publicar um livro pode fortalecer minha autoridade profissional?</span><i class="fa-solid fa-plus"></i></div>
+                    <div class="faq-answer"><p>Um livro é uma das formas mais consistentes de compartilhar conhecimento e consolidar sua credibilidade. Além de registrar sua experiência, ele amplia sua visibilidade, fortalece sua marca pessoal e pode abrir portas para novas oportunidades, como palestras, parcerias e crescimento profissional.</p></div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-question"><span>Quem pode publicar um livro pela Otto Editora?</span><i class="fa-solid fa-plus"></i></div>
+                    <div class="faq-answer"><p>Atendemos especialistas, empreendedores, profissionais, empresas e pessoas que desejam compartilhar conhecimento, experiências ou histórias por meio de uma publicação de qualidade. Cada projeto é avaliado para garantir alinhamento com nossa proposta editorial.</p></div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-question"><span>Nunca escrevi um livro. Posso publicar mesmo assim?</span><i class="fa-solid fa-plus"></i></div>
+                    <div class="faq-answer"><p>Sim. Você não precisa chegar com o livro pronto. Dependendo do projeto, nossa equipe orienta todo o processo de desenvolvimento do conteúdo, organização dos capítulos e preparação da obra para publicação.</p></div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-question"><span>Quais serviços a Otto Editora oferece?</span><i class="fa-solid fa-plus"></i></div>
+                    <div class="faq-answer"><p>Oferecemos soluções completas para publicação, incluindo revisão, preparação de texto, diagramação, projeto gráfico, criação de capa, registro ISBN, ficha catalográfica, publicação e acompanhamento editorial.</p></div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-question"><span>Vocês publicam livros individuais e coletivos?</span><i class="fa-solid fa-plus"></i></div>
+                    <div class="faq-answer"><p>Sim. Desenvolvemos tanto projetos autorais quanto obras em coautoria, reunindo profissionais que compartilham experiências e conhecimentos sobre um mesmo tema.</p></div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-question"><span>O livro recebe ISBN?</span><i class="fa-solid fa-plus"></i></div>
+                    <div class="faq-answer"><p>Sim. Todas as publicações seguem os padrões editoriais e recebem ISBN, além dos demais registros necessários conforme o projeto.</p></div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-question"><span>Os direitos de venda são meus?</span><i class="fa-solid fa-plus"></i></div>
+                    <div class="faq-answer"><p>Sim. Na coautoria, o autor mantém os direitos sobre sua obra conforme estabelecido em contrato. As condições de publicação são apresentadas de forma transparente antes do início do projeto.</p></div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-question"><span>Posso vender meu próprio livro?</span><i class="fa-solid fa-plus"></i></div>
+                    <div class="faq-answer"><p>Sim. O autor pode comercializar exemplares da sua obra de acordo com as condições previstas em contrato.</p></div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-question"><span>Quanto tempo leva para publicar um livro?</span><i class="fa-solid fa-plus"></i></div>
+                    <div class="faq-answer"><p>O prazo varia conforme a complexidade do projeto, o volume de conteúdo e o cronograma editorial. Após a análise inicial, apresentamos uma estimativa personalizada.</p></div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-question"><span>Qual é o investimento?</span><i class="fa-solid fa-plus"></i></div>
+                    <div class="faq-answer"><p>Cada livro possui características únicas, por isso o investimento varia conforme o tipo de projeto, quantidade de páginas, tiragem e serviços contratados. Entre em contato para receber uma proposta personalizada.</p></div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-question"><span>Como posso iniciar meu projeto?</span><i class="fa-solid fa-plus"></i></div>
+                    <div class="faq-answer"><p>Basta entrar em contato conosco pelo WhatsApp. Nossa equipe entenderá seus objetivos e indicará a melhor solução editorial para o seu projeto.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="final-cta section-padding">
+        <div class="container cta-container">
+            <h2 class="cta-title reveal">Sua história de vendas merece<br><span class="chrome-text">estar nas mãos de quem decide.</span></h2>
+            <p class="cta-subtitle reveal delay-1">O processo de curadoria de "Vendedores Natos" é rigoroso e as vagas remanescentes fecham em breve. Fale agora com a equipe da Otto Editora e garanta seu lugar entre os 20 coautores(as) desta obra.</p>
+            <div class="reveal delay-2">
+                <a href="https://wa.me/4884328194/" target="_blank" class="btn btn-chrome btn-giant">Falar com a Curadoria <i class="fa-brands fa-whatsapp" style="font-size:1.4rem;"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <a href="#topo" class="brand-word"><img src="https://i.postimg.cc/g23mDDRH/LOGO.png" alt="Otto Editora" class="brand-logo-img footer-logo"></a>
+                <a href="https://ottoeditora.com.br" class="footer-back">Conheça a Otto Editora &rarr;</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Otto Editora. Todos os direitos reservados. CNPJ: 63.424.648/0001-05</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/4884328194/" target="_blank" class="whatsapp-floating" aria-label="Fale conosco no WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+
+    <div class="sticky-cta">
+        <div class="sticky-cta-text">
+            <strong>Vagas limitadas — turma de 20 coautores(as)</strong>
+            R$ 1.200 em até 12x
+        </div>
+        <a href="https://form.typeform.com/to/HDexd0qf" target="_blank" class="btn btn-chrome">Quero minha vaga</a>
+    </div>
+
+    <script>
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 40);
+        });
+
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            question.addEventListener('click', () => {
+                const isOpen = item.classList.contains('open');
+                faqItems.forEach(other => {
+                    other.classList.remove('open');
+                    other.querySelector('.faq-answer').style.maxHeight = null;
+                });
+                if (!isOpen) {
+                    item.classList.add('open');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                }
+            });
+        });
+        window.addEventListener('resize', () => {
+            const openItem = document.querySelector('.faq-item.open');
+            if (openItem) {
+                const answer = openItem.querySelector('.faq-answer');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            }
+        });
+
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            });
+        }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+        revealElements.forEach(el => revealOnScroll.observe(el));
+    </script>
+</body>
+</html>
